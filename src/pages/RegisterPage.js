@@ -98,7 +98,7 @@ export default function RegisterPage() {
             </option>
           ))}
         </select>
-        <button type="submit"></button>
+        <button type="submit">CADASTRAR</button>
       </RegisterForm>
     </>
   )
@@ -107,6 +107,8 @@ export default function RegisterPage() {
 const RegistroH1 = styled.h1`
   width: 100vw;
   text-align: center;
+  color: #ff9933;
+  font-weight: bold;
 `
 
 const RegisterForm = styled.form`
@@ -124,9 +126,10 @@ const RegisterForm = styled.form`
   button {
     margin-top: 25px;
     height: 60px;
-    width: 90%;
+    width: 80%;
     border-radius: 5px;
     border: 2px solid #ff9933;
+    font-size: 30px;
   }
   input {
     height: 40px;
