@@ -5,6 +5,11 @@ function getClasses() {
   return promise
 }
 
-const apiClasses = { getClasses }
+function register(body) {
+  const promise = axios.post(`${process.env.REACT_APP_BASE_URL}/register`, body)
+  return promise
+}
+
+const apiClasses = { getClasses, register }
 
 export default apiClasses

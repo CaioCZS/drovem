@@ -6,8 +6,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/student/:id" />
+        <Route path="/registro" element={<RegisterPage />} />
+        <Route path="/aluno/:id" />
       </Routes>
     </BrowserRouter>
   )

@@ -2,6 +2,7 @@ import styled from "styled-components"
 import HeaderPages from "../components/HeaderPages.js"
 import { useEffect, useState } from "react"
 import apiClasses from "../services/classes.api.js"
+import { useNavigate } from "react-router-dom"
 
 export default function RegisterPage() {
   const [classes, setClasses] = useState([])
@@ -10,11 +11,34 @@ export default function RegisterPage() {
     cpf: "",
     picture: "",
     email: "",
-    turma: "",
+    classId: "",
+    startDate: "",
   })
+  const navigate = useNavigate()
 
   function handleForm(e) {
     setForm({ ...form, [e.target.name]: e.target.value })
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    apiClasses
+      .register(form)
+      .then((res) => {
+        navigate("/")
+      })
+      .catch((err) => {
+        alert(err.response.data)
+      })
+  }
+
+  function handleSelect(e) {
+    console.log(e.target.value)
+    setForm({
+      ...form,
+      startDate: e.target.value.slice(2),
+      classId: e.target.value[0],
+    })
   }
 
   useEffect(() => {
@@ -33,13 +57,14 @@ export default function RegisterPage() {
     <>
       <HeaderPages />
       <RegistroH1>Cadastro de estudante</RegistroH1>
-      <RegisterForm>
+      <RegisterForm onSubmit={handleSubmit}>
         <input
           placeholder="NOME"
           name="name"
           value={form.name}
           required
           onChange={handleForm}
+          type="text"
         ></input>
         <input
           placeholder="E-MAIL"
@@ -47,6 +72,7 @@ export default function RegisterPage() {
           value={form.email}
           required
           onChange={handleForm}
+          type="email"
         ></input>
         <input
           placeholder="CPF"
@@ -54,6 +80,7 @@ export default function RegisterPage() {
           name="cpf"
           value={form.cpf}
           onChange={handleForm}
+          type="text"
         ></input>
         <input
           placeholder="FOTO"
@@ -61,11 +88,12 @@ export default function RegisterPage() {
           name="picture"
           value={form.picture}
           onChange={handleForm}
+          type="url"
         ></input>
-        <select name="turmas" required>
+        <select name="" required onChange={handleSelect}>
           <option value="">Selecione a turma</option>
           {classes.map((c) => (
-            <option value={c.name} key={c.id}>
+            <option value={[c.id, c.startDate]} key={c.id} name="class">
               {c.name}
             </option>
           ))}
