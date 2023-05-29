@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage.js"
 import StudentPage from "./pages/StudentPage.js"
 import ProjectsPage from "./pages/ProjectsPage.js"
 import EditStudent from "./pages/EditStudent.js"
+import ProjectDeliveryPage from "./pages/ProjectDeliveryPage.js"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/aluno/editar/:id" element={<EditStudent />} />
         <Route path="/aluno/:id" element={<StudentPage />} />
         <Route path="/projetos/turma/:id" element={<ProjectsPage />} />
+        <Route path="/projetos/entrega" element={<ProjectDeliveryPage />} />
       </Routes>
     </BrowserRouter>
   )

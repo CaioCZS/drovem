@@ -6,9 +6,14 @@ export default function HeaderPages({ page }) {
     <Header>
       <h1>Drovem</h1>
       {page === "home" ? (
-        <StyledRegisterLink to="/registro">
-          Cadatrar estudante
-        </StyledRegisterLink>
+        <>
+          <StyledRegisterLink to="/registro">
+            Cadastrar estudante
+          </StyledRegisterLink>
+          <StyledRegisterLink to="/projetos/entrega">
+            Entregar Projeto
+          </StyledRegisterLink>
+        </>
       ) : (
         <StyledBackLink to="/">Voltar</StyledBackLink>
       )}
@@ -23,7 +28,7 @@ const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 30px;
   h1 {
     color: #ff9933;
     font-weight: bold;
