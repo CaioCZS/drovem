@@ -109,6 +109,7 @@ const RegistroH1 = styled.h1`
   text-align: center;
   color: #ff9933;
   font-weight: bold;
+  margin-top: 15vh;
 `
 
 const RegisterForm = styled.form`

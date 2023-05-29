@@ -12,6 +12,7 @@ export default function HeaderPages({ page }) {
 
 const Header = styled.header`
   height: 10vh;
+  width: 100vw;
   background-color: black;
   display: flex;
   justify-content: space-between;
@@ -22,6 +23,9 @@ const Header = styled.header`
     font-weight: bold;
     font-size: 30px;
   }
+  position: fixed;
+  top: 0;
+  right: 0;
 `
 
 const StyledBackLink = styled(Link)`
