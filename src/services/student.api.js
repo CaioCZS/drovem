@@ -12,6 +12,13 @@ export function getStudentsById(id) {
   return promise
 }
 
-const apiStudents = { getStudentsClass, getStudentsById }
+export function editStudent(body, id) {
+  const promise = axios.put(
+    `${process.env.REACT_APP_BASE_URL}/students/${id}`,
+    body
+  )
+  return promise
+}
+const apiStudents = { getStudentsClass, getStudentsById, editStudent }
 
 export default apiStudents

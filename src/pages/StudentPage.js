@@ -42,7 +42,7 @@ export default function StudentPage() {
       </PerfilImage>
 
       <StudentDetails>
-        <LinkEdit to="/">
+        <LinkEdit to={`/aluno/editar/${student.id}`}>
           <AiFillEdit />
           Editar aluno
         </LinkEdit>

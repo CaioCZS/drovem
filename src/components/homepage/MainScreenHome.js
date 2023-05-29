@@ -6,7 +6,12 @@ export default function MainScreenHome({ studentsList, currentClass }) {
   return (
     <TittleClass>
       {currentClass ? (
-        <h1>Estudantes da {currentClass.className}</h1>
+        <>
+          <h1>Estudantes da {currentClass.className}</h1>
+          <ProjectsLink to={`/projetos/turma/${currentClass.classId}`}>
+            Ver projetos da turma
+          </ProjectsLink>
+        </>
       ) : (
         <h1>Selecione uma turma para ver os estudantes</h1>
       )}
@@ -33,9 +38,7 @@ const TittleClass = styled.div`
   background-color: #808080;
   width: 75vw;
   height: 90vh;
-  h1 {
-    text-align: center;
-  }
+  text-align: center;
 `
 
 const UlStudents = styled.ul`
@@ -45,6 +48,7 @@ const UlStudents = styled.ul`
   flex-direction: column;
   gap: 5px;
   align-items: center;
+  margin-top: 20px;
   div {
     background-color: red;
     width: 100vw;
@@ -79,4 +83,10 @@ const LiStudents = styled.li`
 const InfoStudentLink = styled(Link)`
   position: absolute;
   right: 30px;
+`
+
+const ProjectsLink = styled(Link)`
+  text-decoration: none;
+  color: #ff9933;
+  font-weight: bold;
 `
