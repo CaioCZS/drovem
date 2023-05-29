@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 
-export default function HeaderPages() {
+export default function HeaderPages({ page }) {
   return (
     <Header>
       <h1>Drovem</h1>
-      <StyledBackLink to="/">Voltar</StyledBackLink>
+      {page === "home" ? <></> : <StyledBackLink to="/">Voltar</StyledBackLink>}
     </Header>
   )
 }
