@@ -15,10 +15,10 @@ export default function MainScreenHome({ studentsList, currentClass }) {
           <h1>Esta turma ainda não tem estudantes cadastrados</h1>
         ) : (
           studentsList.map((s) => (
-            <LiStudents key={s.id}>
+            <LiStudents key={s.studentId}>
               <img src={s.picture} alt="aluno" />
               {s.name}
-              <InfoStudentLink to="/registro">
+              <InfoStudentLink to={`/aluno/${s.studentId}`}>
                 <GrContactInfo />
               </InfoStudentLink>
             </LiStudents>
