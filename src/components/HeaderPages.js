@@ -5,7 +5,13 @@ export default function HeaderPages({ page }) {
   return (
     <Header>
       <h1>Drovem</h1>
-      {page === "home" ? <></> : <StyledBackLink to="/">Voltar</StyledBackLink>}
+      {page === "home" ? (
+        <StyledRegisterLink to="/registro">
+          Cadatrar estudante
+        </StyledRegisterLink>
+      ) : (
+        <StyledBackLink to="/">Voltar</StyledBackLink>
+      )}
     </Header>
   )
 }
@@ -29,6 +35,16 @@ const Header = styled.header`
 `
 
 const StyledBackLink = styled(Link)`
+  color: #ff9933;
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+  :hover {
+    cursor: pointer;
+  }
+`
+
+const StyledRegisterLink = styled(Link)`
   color: #ff9933;
   font-weight: bold;
   font-size: 20px;
